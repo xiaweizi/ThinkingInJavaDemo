@@ -12,6 +12,9 @@ package chapter5;
 
 class Main {
     public static void main(String[] args) {
+        Student student = new Student(2);
+        student.f("x",2, "dfa", 0.2f);
+
 //        Student student = new Student(12);
 //        student.fun(1, "aa");
 //        student.fun("bb", 2);

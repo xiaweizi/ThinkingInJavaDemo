@@ -18,7 +18,7 @@ class Student {
     Book book = new Book(3);
     static  Book book1 = new Book(4);
 
-    public Student(int age) {
+    Student(int age) {
         System.out.println("student init age:" + age);
     }
 
@@ -48,5 +48,11 @@ class Student {
     }
     public void test(double c) {
         System.out.println("double");
+    }
+
+    public void f(Object... args) {
+        for (Object arg : args) {
+            System.out.println(arg);
+        }
     }
 }
