@@ -13,9 +13,8 @@ package chapter7;
 class Main {
 
     public static void main(String[] args) {
-        Student student = new Student("Jack");
+        Worker worker = new Worker("_xia");
     }
-
 }
 
 class People {
@@ -32,7 +31,6 @@ class Worker extends People{
         System.out.println("Worker");
     }
     Worker(String name) {
-        super(name);
         System.out.println("Worker" + name);
     }
 }
