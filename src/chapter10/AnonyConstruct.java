@@ -13,6 +13,9 @@ package chapter10;
 
 
 abstract class Base {
+    Base() {
+        System.out.println("Base Construct");
+    }
     Base(int i) {
         System.out.println("construct: " + i);
     }
@@ -21,7 +24,7 @@ abstract class Base {
 
 public class AnonyConstruct {
     public static Base getBase() {
-        return new Base(2) {
+        return new Base() {
             {
                 System.out.println("dddd");
             }
