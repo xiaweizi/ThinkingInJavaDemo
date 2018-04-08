@@ -1,3 +1,4 @@
 /.idea
 ThinkingInJavaDemo.iml
 /out
+*.class
