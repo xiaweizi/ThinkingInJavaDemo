@@ -1,6 +1,9 @@
 package chapter14;
 
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
  * <pre>
@@ -24,6 +27,10 @@ class ProxyTest {
         System.out.println();
         System.out.println();
         consumer(new ProxyObject(new RealObject()));
+        System.out.println();
+        System.out.println();
+        Interface anInterface = (Interface) Proxy.newProxyInstance(Interface.class.getClassLoader(), new Class[]{Interface.class}, new DynamicProxyHandler(new RealObject()));
+        consumer(anInterface);
     }
 }
 
@@ -63,6 +70,20 @@ class ProxyObject implements Interface {
     public void doSomeThingElse(String args) {
         System.out.println("ProxyObject doSomeThingElse:" + args);
         anInterface.doSomeThingElse(args);
+    }
+}
+
+class DynamicProxyHandler implements InvocationHandler {
+
+    private Object proxied;
+    DynamicProxyHandler(Object proxied) {
+        this.proxied = proxied;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException {
+        System.out.println("DynamicProxy " + method.getName());
+        return method.invoke(proxied, args);
     }
 }
 
