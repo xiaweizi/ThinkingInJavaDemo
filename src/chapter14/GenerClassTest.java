@@ -22,11 +22,14 @@ class GenerClassTest {
         Student student = studentClass.newInstance();
         People people = studentClass.newInstance();
 
+        Student cast = studentClass.cast(new People());
+
         Class<? extends People> peopleClass = Student.class;
         peopleClass.newInstance().onPeople();
 
         Worker<? extends People> worker = new Worker<>(new People());
         worker.test();
+
     }
 }
 
