@@ -14,5 +14,18 @@ public class Main {
             file1.mkdirs();
             System.out.println("file1 is not exits");
         }
+        Student student = new Student();
+        student.name = "aa";
+        test(student);
+        System.out.println(student.name);
     }
+
+    private static void test(Student a) {
+       a.name = "dad";
+    }
+
+}
+
+class Student {
+    String name;
 }
