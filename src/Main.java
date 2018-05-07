@@ -1,27 +1,20 @@
-import java.io.File;
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        File file = new File("aa.txt");
-        if (!file.exists()) {
-            System.out.println("!exits");
-            file.mkdir();
-        }
-        File file1 = new File("aa.txt/bb.txt");
-        if (!file1.exists()) {
-            file1.mkdirs();
-            System.out.println("file1 is not exits");
-        }
-        Student student = new Student();
-        student.name = "aa";
-        test(student);
-        System.out.println(student.name);
-    }
-
-    private static void test(Student a) {
-       a.name = "dad";
+        Student student1 = new Student();
+        student1.name ="00";
+        Student student2 = student1;
+        System.out.println(student1.name);
+        System.out.println(student2.name);
+        System.out.println("------");
+        student1.name = "11";
+        System.out.println(student1.name);
+        System.out.println(student2.name);
+        student2.name = "22";
+        System.out.println(student1.name);
+        System.out.println(student2.name);
     }
 
 }
